@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Markdown Builder</title>
+    <link rel="stylesheet" href="builder.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="panel">
+        <div id="editingBanner" class="editing-banner" hidden>
+          <strong>Editing existing recipe</strong>
+          <span id="editingRecipeName"></span>
+        </div>
+
+        <h1>Recipe Builder</h1>
+
+        <button type="button" id="toggleGithubBtn">GitHub Settings</button>
+
+        <section id="githubSettings" class="github-settings" hidden>
+          <label>
+            GitHub Owner
+            <input id="githubOwner" placeholder="kevinmmiller" />
+          </label>
+
+          <label>
+            GitHub Repo
+            <input id="githubRepo" placeholder="recipes" />
+          </label>
+
+          <label>
+            GitHub Branch
+            <input id="githubBranch" placeholder="main" />
+          </label>
+
+          <label>
+            GitHub Token
+            <input id="githubToken" type="text" placeholder="ghp_..." />
+          </label>
+
+          <button type="button" id="saveGithubSettingsBtn">
+            Save GitHub Settings
+          </button>
+        </section>
+
+        <label>
+          Title
+          <input id="title" placeholder="Spanish BBQ Ribs" />
+        </label>
+
+        <label>
+          Existing Recipe
+          <select id="existingRecipe">
+            <option value="">Create a new recipe</option>
+          </select>
+        </label>
+
+        <div class="grid grid-meta">
+          <label>
+            Category
+            <select id="category">
+              <option value="">Loading categories...</option>
+            </select>
+          </label>
+
+          <label>
+            Class
+            <select id="recipeClass">
+              <option value="">Select a category first</option>
+            </select>
+          </label>
+
+          <label>
+            Person
+            <select id="person">
+              <option value="">Loading people...</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="grid">
+          <label>
+            Servings
+            <input id="servings" placeholder="6" />
+          </label>
+
+          <label>
+            Prep Time
+            <input id="prepTime" placeholder="25 minutes" />
+          </label>
+
+          <label>
+            Cook Time
+            <input id="cookTime" placeholder="3 hours" />
+          </label>
+        </div>
+
+        <label>
+          Main Ingredients
+          <textarea
+            id="mainIngredients"
+            placeholder="- 2 racks ribs&#10;- 2 tbsp smoked paprika"
+          ></textarea>
+        </label>
+
+        <label>
+          Main Steps
+          <textarea
+            id="mainSteps"
+            placeholder="1. Season the ribs.&#10;2. Smoke until tender."
+          ></textarea>
+        </label>
+
+        <section>
+          <div class="preview-header">
+            <h2>Sub Recipes</h2>
+            <button type="button" id="addSubRecipeBtn">Add Sub Recipe</button>
+          </div>
+
+          <div id="subRecipes"></div>
+        </section>
+        <label>
+          Assembly
+          <textarea
+            id="assembly"
+            placeholder="1. Slice ribs.&#10;2. Serve with tapenade."
+          ></textarea>
+        </label>
+
+        <label>
+          Notes
+          <textarea
+            id="notes"
+            placeholder="- Better after resting 10 minutes."
+          ></textarea>
+        </label>
+      </section>
+
+      <section class="panel">
+        <div class="preview-header">
+          <h2>Markdown Output</h2>
+          <button id="copyBtn">Copy Markdown</button>
+        </div>
+
+        <pre id="output"></pre>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

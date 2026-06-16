@@ -1,0 +1,1292 @@
+{
+  "people": [
+    {
+      "id": "colin",
+      "name": "Colin Miller"
+    },
+    {
+      "id": "kevin",
+      "name": "Kevin Miller"
+    },
+    {
+      "id": "samantha",
+      "name": "Samantha Miller"
+    }
+  ],
+  "categories": {
+    "adult": {
+      "American Dairy Association Indiana Dairy Foods": {
+        "slug": "american-dairy-association-indiana-dairy-foods",
+        "classes": [
+          {
+            "slug": "112-cookies-plate-of-6",
+            "classNumber": 112,
+            "name": "Cookies Plate of 6",
+            "recipes": []
+          },
+          {
+            "slug": "113-candy-plate-of-9-pieces",
+            "classNumber": 113,
+            "name": "Candy Plate of 9 Pieces",
+            "recipes": []
+          },
+          {
+            "slug": "114-quick-bread-one-standard-loaf",
+            "classNumber": 114,
+            "name": "Quick Bread One Standard Loaf",
+            "recipes": []
+          }
+        ]
+      },
+      "Bar Desserts": {
+        "slug": "bar-desserts",
+        "classes": [
+          {
+            "slug": "077-pumpkin-or-zucchini-bars",
+            "classNumber": 77,
+            "name": "Pumpkin or Zucchini Bars",
+            "recipes": []
+          },
+          {
+            "slug": "078-fruit-bars",
+            "classNumber": 78,
+            "name": "Fruit Bars",
+            "recipes": []
+          },
+          {
+            "slug": "079-lemon-bars",
+            "classNumber": 79,
+            "name": "Lemon Bars",
+            "recipes": []
+          },
+          {
+            "slug": "080-blonde-brownies-must-contain-brown-sugar",
+            "classNumber": 80,
+            "name": "Blonde Brownies Must Contain Brown Sugar",
+            "recipes": []
+          },
+          {
+            "slug": "081-layered-bars-with-nuts-fruit-chips-etc",
+            "classNumber": 81,
+            "name": "Layered Bars With Nuts Fruit Chips Etc",
+            "recipes": []
+          },
+          {
+            "slug": "082-other-than-above-refrigerated-no-bake-or-cookie-bars",
+            "classNumber": 82,
+            "name": "Other than Above Refrigerated No Bake or Cookie Bars",
+            "recipes": []
+          }
+        ]
+      },
+      "Brownies": {
+        "slug": "brownies",
+        "classes": [
+          {
+            "slug": "037-brownies-not-frosted",
+            "classNumber": 37,
+            "name": "Brownies Not Frosted",
+            "recipes": []
+          },
+          {
+            "slug": "038-frosted-brownies",
+            "classNumber": 38,
+            "name": "Frosted Brownies",
+            "recipes": []
+          },
+          {
+            "slug": "039-brownies-containing-nuts",
+            "classNumber": 39,
+            "name": "Brownies Containing Nuts",
+            "recipes": []
+          },
+          {
+            "slug": "040-caramel-brownies",
+            "classNumber": 40,
+            "name": "Caramel Brownies",
+            "recipes": []
+          },
+          {
+            "slug": "041-peanut-butter-brownies",
+            "classNumber": 41,
+            "name": "Peanut Butter Brownies",
+            "recipes": []
+          },
+          {
+            "slug": "042-other-than-above",
+            "classNumber": 42,
+            "name": "Other than Above",
+            "recipes": []
+          }
+        ]
+      },
+      "Butters": {
+        "slug": "butters",
+        "classes": [
+          {
+            "slug": "017-any-fruit-butter-flavor",
+            "classNumber": 17,
+            "name": "Any Fruit Butter Flavor",
+            "recipes": []
+          }
+        ]
+      },
+      "Cake Decorating Competition Theme": {
+        "slug": "cake-decorating-competition-theme",
+        "classes": [
+          {
+            "slug": "121-a-celebration-of-baseball",
+            "classNumber": 121,
+            "name": "A Celebration of Baseball",
+            "recipes": []
+          },
+          {
+            "slug": "122-america-250th-birthday-theme",
+            "classNumber": 122,
+            "name": "America 250th Birthday Theme",
+            "recipes": []
+          }
+        ]
+      },
+      "Candy": {
+        "slug": "candy",
+        "classes": [
+          {
+            "slug": "046-chocolate-fudge",
+            "classNumber": 46,
+            "name": "Chocolate Fudge",
+            "recipes": []
+          },
+          {
+            "slug": "047-peanut-butter-fudge",
+            "classNumber": 47,
+            "name": "Peanut Butter Fudge",
+            "recipes": []
+          },
+          {
+            "slug": "048-any-other-fudge",
+            "classNumber": 48,
+            "name": "Any Other Fudge",
+            "recipes": []
+          },
+          {
+            "slug": "049-english-toffee",
+            "classNumber": 49,
+            "name": "English Toffee",
+            "recipes": []
+          },
+          {
+            "slug": "050-caramel-corn",
+            "classNumber": 50,
+            "name": "Caramel Corn",
+            "recipes": []
+          },
+          {
+            "slug": "051-caramels-no-chocolate-coating",
+            "classNumber": 51,
+            "name": "Caramels No Chocolate Coating",
+            "recipes": []
+          },
+          {
+            "slug": "052-brittle",
+            "classNumber": 52,
+            "name": "Brittle",
+            "recipes": []
+          },
+          {
+            "slug": "053-chocolate-covered-candies",
+            "classNumber": 53,
+            "name": "Chocolate Covered Candies",
+            "recipes": []
+          },
+          {
+            "slug": "054-other-than-above",
+            "classNumber": 54,
+            "name": "Other than Above",
+            "recipes": []
+          },
+          {
+            "slug": "055-microwave-candy",
+            "classNumber": 55,
+            "name": "Microwave Candy",
+            "recipes": []
+          }
+        ]
+      },
+      "Canned Fruits And Canned Vegetables": {
+        "slug": "canned-fruits-and-canned-vegetables",
+        "classes": [
+          {
+            "slug": "025-fruit-based-sauce",
+            "classNumber": 25,
+            "name": "Fruit Based Sauce",
+            "recipes": []
+          },
+          {
+            "slug": "026-fruit-or-pie-filling",
+            "classNumber": 26,
+            "name": "Fruit or Pie Filling",
+            "recipes": []
+          },
+          {
+            "slug": "027-vegetables",
+            "classNumber": 27,
+            "name": "Vegetables",
+            "recipes": []
+          }
+        ]
+      },
+      "Cheesecake": {
+        "slug": "cheesecake",
+        "classes": [
+          {
+            "slug": "138-any-cheesecake",
+            "classNumber": 138,
+            "name": "Any Cheesecake",
+            "recipes": []
+          }
+        ]
+      },
+      "Cookie Decorating Competition": {
+        "slug": "cookie-decorating-competition",
+        "classes": [
+          {
+            "slug": "125-special-occasion",
+            "classNumber": 125,
+            "name": "Special Occasion",
+            "recipes": []
+          }
+        ]
+      },
+      "Cookie Decorating Competition Theme": {
+        "slug": "cookie-decorating-competition-theme",
+        "classes": [
+          {
+            "slug": "123-a-celebration-of-baseball",
+            "classNumber": 123,
+            "name": "A Celebration of Baseball",
+            "recipes": []
+          },
+          {
+            "slug": "124-america-250th-birthday-theme",
+            "classNumber": 124,
+            "name": "America 250th Birthday Theme",
+            "recipes": []
+          }
+        ]
+      },
+      "Cookies": {
+        "slug": "cookies",
+        "classes": [
+          {
+            "slug": "056-chocolate-chip-without-nuts",
+            "classNumber": 56,
+            "name": "Chocolate Chip Without Nuts",
+            "recipes": []
+          },
+          {
+            "slug": "057-chocolate-chip-with-nuts",
+            "classNumber": 57,
+            "name": "Chocolate Chip With Nuts",
+            "recipes": []
+          },
+          {
+            "slug": "058-coconut-macaroons",
+            "classNumber": 58,
+            "name": "Coconut Macaroons",
+            "recipes": []
+          },
+          {
+            "slug": "059-lemon-or-lime",
+            "classNumber": 59,
+            "name": "Lemon or Lime",
+            "recipes": []
+          },
+          {
+            "slug": "060-filled-or-sandwich",
+            "classNumber": 60,
+            "name": "Filled or Sandwich",
+            "recipes": []
+          },
+          {
+            "slug": "061-ginger",
+            "classNumber": 61,
+            "name": "Ginger",
+            "recipes": []
+          },
+          {
+            "slug": "062-biscotti",
+            "classNumber": 62,
+            "name": "Biscotti",
+            "recipes": []
+          },
+          {
+            "slug": "063-crinkle-cookies",
+            "classNumber": 63,
+            "name": "Crinkle Cookies",
+            "recipes": []
+          },
+          {
+            "slug": "064-mexican-wedding-cake",
+            "classNumber": 64,
+            "name": "Mexican Wedding Cake",
+            "recipes": []
+          },
+          {
+            "slug": "065-nut",
+            "classNumber": 65,
+            "name": "Nut",
+            "recipes": []
+          },
+          {
+            "slug": "066-oatmeal",
+            "classNumber": 66,
+            "name": "Oatmeal",
+            "recipes": []
+          },
+          {
+            "slug": "067-orange",
+            "classNumber": 67,
+            "name": "Orange",
+            "recipes": []
+          },
+          {
+            "slug": "068-peanut-butter",
+            "classNumber": 68,
+            "name": "Peanut Butter",
+            "recipes": []
+          },
+          {
+            "slug": "069-pineapple",
+            "classNumber": 69,
+            "name": "Pineapple",
+            "recipes": []
+          },
+          {
+            "slug": "070-holiday-cookies",
+            "classNumber": 70,
+            "name": "Holiday Cookies",
+            "recipes": []
+          },
+          {
+            "slug": "071-sugar-not-iced",
+            "classNumber": 71,
+            "name": "Sugar Not Iced",
+            "recipes": []
+          },
+          {
+            "slug": "072-unbaked",
+            "classNumber": 72,
+            "name": "Unbaked",
+            "recipes": []
+          },
+          {
+            "slug": "073-molasses",
+            "classNumber": 73,
+            "name": "Molasses",
+            "recipes": []
+          },
+          {
+            "slug": "074-snickerdoodle",
+            "classNumber": 74,
+            "name": "Snickerdoodle",
+            "recipes": []
+          },
+          {
+            "slug": "075-butter-shortbread-cookie",
+            "classNumber": 75,
+            "name": "Butter Shortbread Cookie",
+            "recipes": []
+          },
+          {
+            "slug": "076-other-than-above",
+            "classNumber": 76,
+            "name": "Other than Above",
+            "recipes": []
+          }
+        ]
+      },
+      "Create With A Mix": {
+        "slug": "create-with-a-mix",
+        "classes": [
+          {
+            "slug": "107-cookies",
+            "classNumber": 107,
+            "name": "Cookies",
+            "recipes": []
+          },
+          {
+            "slug": "108-brownies",
+            "classNumber": 108,
+            "name": "Brownies",
+            "recipes": []
+          },
+          {
+            "slug": "109-breads-quick-or-yeast",
+            "classNumber": 109,
+            "name": "Breads Quick or Yeast",
+            "recipes": []
+          },
+          {
+            "slug": "110-cakes",
+            "classNumber": 110,
+            "name": "Cakes",
+            "recipes": []
+          },
+          {
+            "slug": "111-other-than-above",
+            "classNumber": 111,
+            "name": "Other than Above",
+            "recipes": []
+          }
+        ]
+      },
+      "Dehydrated": {
+        "slug": "dehydrated",
+        "classes": [
+          {
+            "slug": "001-fruits",
+            "classNumber": 1,
+            "name": "Fruits",
+            "recipes": []
+          },
+          {
+            "slug": "002-vegetables",
+            "classNumber": 2,
+            "name": "Vegetables",
+            "recipes": []
+          },
+          {
+            "slug": "003-herbs",
+            "classNumber": 3,
+            "name": "Herbs",
+            "recipes": []
+          }
+        ]
+      },
+      "Dips Or Spreads": {
+        "slug": "dips-or-spreads",
+        "classes": [
+          {
+            "slug": "031-dip-for-fruit",
+            "classNumber": 31,
+            "name": "Dip for Fruit",
+            "recipes": []
+          },
+          {
+            "slug": "032-dip-for-vegetables",
+            "classNumber": 32,
+            "name": "Dip for Vegetables",
+            "recipes": [
+              {
+                "personId": "kevin",
+                "personName": "Kevin Miller",
+                "recipeSlug": "wing",
+                "recipeName": "Buffalo Ranch Vegetable Dip",
+                "recipePath": "adult/dips-or-spreads/032-dip-for-vegetables/kevin/wing/recipe.md",
+                "classNumber": 32,
+                "className": "Dip for Vegetables"
+              }
+            ]
+          },
+          {
+            "slug": "033-dip-for-chip-excluding-salsa",
+            "classNumber": 33,
+            "name": "Dip for Chip Excluding Salsa",
+            "recipes": [
+              {
+                "personId": "kevin",
+                "personName": "Kevin Miller",
+                "recipeSlug": "italian-beef-cold",
+                "recipeName": "Sweet Home Chicago Dip",
+                "recipePath": "adult/dips-or-spreads/033-dip-for-chip-excluding-salsa/kevin/italian-beef-cold/recipe.md",
+                "classNumber": 33,
+                "className": "Dip for Chip Excluding Salsa"
+              }
+            ]
+          },
+          {
+            "slug": "034-hummus-dip",
+            "classNumber": 34,
+            "name": "Hummus Dip",
+            "recipes": [
+              {
+                "personId": "kevin",
+                "personName": "Kevin Miller",
+                "recipeSlug": "nola-hummus",
+                "recipeName": "Nola Hummus",
+                "recipePath": "adult/dips-or-spreads/034-hummus-dip/kevin/nola-hummus/recipe.md",
+                "classNumber": 34,
+                "className": "Hummus Dip"
+              }
+            ]
+          },
+          {
+            "slug": "035-cheese-dip",
+            "classNumber": 35,
+            "name": "Cheese Dip",
+            "recipes": [
+              {
+                "personId": "kevin",
+                "personName": "Kevin Miller",
+                "recipeSlug": "harvest-wind",
+                "recipeName": "Harvest Wind",
+                "recipePath": "adult/dips-or-spreads/035-cheese-dip/kevin/harvest-wind/recipe.md",
+                "classNumber": 35,
+                "className": "Cheese Dip"
+              }
+            ]
+          },
+          {
+            "slug": "036-fresh-salsa",
+            "classNumber": 36,
+            "name": "Fresh Salsa",
+            "recipes": []
+          }
+        ]
+      },
+      "Honey Foods": {
+        "slug": "honey-foods",
+        "classes": [
+          {
+            "slug": "102-honey-cookies",
+            "classNumber": 102,
+            "name": "Honey Cookies",
+            "recipes": []
+          },
+          {
+            "slug": "103-honey-breads",
+            "classNumber": 103,
+            "name": "Honey Breads",
+            "recipes": []
+          },
+          {
+            "slug": "104-honey-cakes",
+            "classNumber": 104,
+            "name": "Honey Cakes",
+            "recipes": []
+          },
+          {
+            "slug": "105-honey-pies",
+            "classNumber": 105,
+            "name": "Honey Pies",
+            "recipes": []
+          },
+          {
+            "slug": "106-other-than-above-honey-food",
+            "classNumber": 106,
+            "name": "Other than Above Honey Food",
+            "recipes": []
+          }
+        ]
+      },
+      "International Baked Foods": {
+        "slug": "international-baked-foods",
+        "classes": [
+          {
+            "slug": "115-cookies",
+            "classNumber": 115,
+            "name": "Cookies",
+            "recipes": []
+          },
+          {
+            "slug": "116-yeast-breads-sweet-or-savory",
+            "classNumber": 116,
+            "name": "Yeast Breads Sweet or Savory",
+            "recipes": []
+          },
+          {
+            "slug": "117-cakes",
+            "classNumber": 117,
+            "name": "Cakes",
+            "recipes": []
+          },
+          {
+            "slug": "118-pastries",
+            "classNumber": 118,
+            "name": "Pastries",
+            "recipes": []
+          },
+          {
+            "slug": "119-other-than-above-baked-food",
+            "classNumber": 119,
+            "name": "Other than Above Baked Food",
+            "recipes": []
+          }
+        ]
+      },
+      "Jams And Preserves": {
+        "slug": "jams-and-preserves",
+        "classes": [
+          {
+            "slug": "008-blackberry",
+            "classNumber": 8,
+            "name": "Blackberry",
+            "recipes": []
+          },
+          {
+            "slug": "009-peach",
+            "classNumber": 9,
+            "name": "Peach",
+            "recipes": []
+          },
+          {
+            "slug": "010-black-raspberry-and-red-raspberry",
+            "classNumber": 10,
+            "name": "Black Raspberry and Red Raspberry",
+            "recipes": []
+          },
+          {
+            "slug": "011-marmalades",
+            "classNumber": 11,
+            "name": "Marmalades",
+            "recipes": []
+          },
+          {
+            "slug": "012-strawberry",
+            "classNumber": 12,
+            "name": "Strawberry",
+            "recipes": []
+          },
+          {
+            "slug": "013-mixed-fruit",
+            "classNumber": 13,
+            "name": "Mixed Fruit",
+            "recipes": []
+          },
+          {
+            "slug": "014-any-berry-jam",
+            "classNumber": 14,
+            "name": "Any Berry Jam",
+            "recipes": []
+          },
+          {
+            "slug": "015-pepper-jelly-preserves",
+            "classNumber": 15,
+            "name": "Pepper Jelly Preserves",
+            "recipes": []
+          },
+          {
+            "slug": "016-other-than-above",
+            "classNumber": 16,
+            "name": "Other than Above",
+            "recipes": []
+          }
+        ]
+      },
+      "Jellies": {
+        "slug": "jellies",
+        "classes": [
+          {
+            "slug": "004-any-single-berry",
+            "classNumber": 4,
+            "name": "Any Single Berry",
+            "recipes": []
+          },
+          {
+            "slug": "005-any-single-fruit",
+            "classNumber": 5,
+            "name": "Any Single Fruit",
+            "recipes": []
+          },
+          {
+            "slug": "006-multiple-fruit",
+            "classNumber": 6,
+            "name": "Multiple Fruit",
+            "recipes": []
+          },
+          {
+            "slug": "007-other-than-above",
+            "classNumber": 7,
+            "name": "Other than Above",
+            "recipes": []
+          }
+        ]
+      },
+      "Multiple Layer Cakes": {
+        "slug": "multiple-layer-cakes",
+        "classes": [
+          {
+            "slug": "132-spice-or-nut",
+            "classNumber": 132,
+            "name": "Spice or Nut",
+            "recipes": []
+          },
+          {
+            "slug": "133-cherry-or-other-fruit",
+            "classNumber": 133,
+            "name": "Cherry or Other Fruit",
+            "recipes": []
+          },
+          {
+            "slug": "134-coconut",
+            "classNumber": 134,
+            "name": "Coconut",
+            "recipes": []
+          },
+          {
+            "slug": "135-chocolate",
+            "classNumber": 135,
+            "name": "Chocolate",
+            "recipes": []
+          },
+          {
+            "slug": "136-white-or-yellow",
+            "classNumber": 136,
+            "name": "White or Yellow",
+            "recipes": []
+          },
+          {
+            "slug": "137-other-than-above",
+            "classNumber": 137,
+            "name": "Other than Above",
+            "recipes": []
+          }
+        ]
+      },
+      "Non Professional Cake Decorating": {
+        "slug": "non-professional-cake-decorating",
+        "classes": [
+          {
+            "slug": "120-special-occasion",
+            "classNumber": 120,
+            "name": "Special Occasion",
+            "recipes": []
+          }
+        ]
+      },
+      "Pickles": {
+        "slug": "pickles",
+        "classes": [
+          {
+            "slug": "018-bread-and-butter",
+            "classNumber": 18,
+            "name": "Bread and Butter",
+            "recipes": []
+          },
+          {
+            "slug": "019-dill",
+            "classNumber": 19,
+            "name": "Dill",
+            "recipes": []
+          },
+          {
+            "slug": "020-other-than-above",
+            "classNumber": 20,
+            "name": "Other than Above",
+            "recipes": []
+          }
+        ]
+      },
+      "Pies": {
+        "slug": "pies",
+        "classes": [
+          {
+            "slug": "140-dutch-apple",
+            "classNumber": 140,
+            "name": "Dutch Apple",
+            "recipes": []
+          },
+          {
+            "slug": "141-apple",
+            "classNumber": 141,
+            "name": "Apple",
+            "recipes": []
+          },
+          {
+            "slug": "142-blackberry",
+            "classNumber": 142,
+            "name": "Blackberry",
+            "recipes": []
+          },
+          {
+            "slug": "143-blueberry",
+            "classNumber": 143,
+            "name": "Blueberry",
+            "recipes": []
+          },
+          {
+            "slug": "144-multiple-berry",
+            "classNumber": 144,
+            "name": "Multiple Berry",
+            "recipes": []
+          },
+          {
+            "slug": "145-cherry",
+            "classNumber": 145,
+            "name": "Cherry",
+            "recipes": []
+          },
+          {
+            "slug": "146-chocolate-brownie-or-fudge",
+            "classNumber": 146,
+            "name": "Chocolate Brownie or Fudge",
+            "recipes": []
+          },
+          {
+            "slug": "147-multiple-fruit",
+            "classNumber": 147,
+            "name": "Multiple Fruit",
+            "recipes": []
+          },
+          {
+            "slug": "148-peach",
+            "classNumber": 148,
+            "name": "Peach",
+            "recipes": []
+          },
+          {
+            "slug": "149-pecan",
+            "classNumber": 149,
+            "name": "Pecan",
+            "recipes": []
+          },
+          {
+            "slug": "150-pineapple",
+            "classNumber": 150,
+            "name": "Pineapple",
+            "recipes": []
+          },
+          {
+            "slug": "151-rhubarb",
+            "classNumber": 151,
+            "name": "Rhubarb",
+            "recipes": []
+          },
+          {
+            "slug": "152-strawberry",
+            "classNumber": 152,
+            "name": "Strawberry",
+            "recipes": []
+          },
+          {
+            "slug": "153-other-single-fruit-pie-non-refrigerated",
+            "classNumber": 153,
+            "name": "Other Single Fruit Pie Non Refrigerated",
+            "recipes": []
+          },
+          {
+            "slug": "154-other-than-above-non-refrigerated",
+            "classNumber": 154,
+            "name": "Other than Above Non Refrigerated",
+            "recipes": []
+          },
+          {
+            "slug": "155-coconut-cream",
+            "classNumber": 155,
+            "name": "Coconut Cream",
+            "recipes": []
+          },
+          {
+            "slug": "156-hoosier-sugar-cream",
+            "classNumber": 156,
+            "name": "Hoosier Sugar Cream",
+            "recipes": []
+          },
+          {
+            "slug": "157-fruit-cream-pie",
+            "classNumber": 157,
+            "name": "Fruit Cream Pie",
+            "recipes": []
+          },
+          {
+            "slug": "158-pumpkin-or-sweet-potato",
+            "classNumber": 158,
+            "name": "Pumpkin or Sweet Potato",
+            "recipes": []
+          },
+          {
+            "slug": "159-other-cream-pie",
+            "classNumber": 159,
+            "name": "Other Cream Pie",
+            "recipes": []
+          }
+        ]
+      },
+      "Quick Breads": {
+        "slug": "quick-breads",
+        "classes": [
+          {
+            "slug": "094-zucchini-loaf",
+            "classNumber": 94,
+            "name": "Zucchini Loaf",
+            "recipes": []
+          },
+          {
+            "slug": "095-banana-loaf",
+            "classNumber": 95,
+            "name": "Banana Loaf",
+            "recipes": []
+          },
+          {
+            "slug": "096-banana-nut-loaf",
+            "classNumber": 96,
+            "name": "Banana Nut Loaf",
+            "recipes": []
+          },
+          {
+            "slug": "097-pumpkin-loaf",
+            "classNumber": 97,
+            "name": "Pumpkin Loaf",
+            "recipes": []
+          },
+          {
+            "slug": "098-muffins",
+            "classNumber": 98,
+            "name": "Muffins",
+            "recipes": []
+          },
+          {
+            "slug": "099-scones",
+            "classNumber": 99,
+            "name": "Scones",
+            "recipes": []
+          },
+          {
+            "slug": "100-coffee-cakes",
+            "classNumber": 100,
+            "name": "Coffee Cakes",
+            "recipes": []
+          },
+          {
+            "slug": "101-other-than-above-includes-biscuits-turnovers",
+            "classNumber": 101,
+            "name": "Other than Above Includes Biscuits Turnovers",
+            "recipes": []
+          }
+        ]
+      },
+      "Relishes": {
+        "slug": "relishes",
+        "classes": [
+          {
+            "slug": "021-corn",
+            "classNumber": 21,
+            "name": "Corn",
+            "recipes": []
+          },
+          {
+            "slug": "022-sweet",
+            "classNumber": 22,
+            "name": "Sweet",
+            "recipes": []
+          },
+          {
+            "slug": "023-salsa-not-fresh",
+            "classNumber": 23,
+            "name": "Salsa Not Fresh",
+            "recipes": []
+          },
+          {
+            "slug": "024-other-than-above",
+            "classNumber": 24,
+            "name": "Other than Above",
+            "recipes": []
+          }
+        ]
+      },
+      "Sauces": {
+        "slug": "sauces",
+        "classes": [
+          {
+            "slug": "028-tomato-based-sauce",
+            "classNumber": 28,
+            "name": "Tomato Based Sauce",
+            "recipes": [
+              {
+                "personId": "kevin",
+                "personName": "Kevin Miller",
+                "recipeSlug": "market-recipe",
+                "recipeName": "Spanish Market Tomato Sauce",
+                "recipePath": "adult/sauces/028-tomato-based-sauce/kevin/market-recipe/recipe.md",
+                "classNumber": 28,
+                "className": "Tomato Based Sauce"
+              }
+            ]
+          },
+          {
+            "slug": "029-barbecue-sauce",
+            "classNumber": 29,
+            "name": "Barbecue Sauce",
+            "recipes": [
+              {
+                "personId": "kevin",
+                "personName": "Kevin Miller",
+                "recipeSlug": "sun-god",
+                "recipeName": "Sun God BBQ Sauce",
+                "recipePath": "adult/sauces/029-barbecue-sauce/kevin/sun-god/recipe.md",
+                "classNumber": 29,
+                "className": "Barbecue Sauce"
+              }
+            ]
+          },
+          {
+            "slug": "030-other-than-above",
+            "classNumber": 30,
+            "name": "Other than Above",
+            "recipes": []
+          }
+        ]
+      },
+      "Single Layer Cakes": {
+        "slug": "single-layer-cakes",
+        "classes": [
+          {
+            "slug": "126-pound",
+            "classNumber": 126,
+            "name": "Pound",
+            "recipes": []
+          },
+          {
+            "slug": "127-gingerbread",
+            "classNumber": 127,
+            "name": "Gingerbread",
+            "recipes": []
+          },
+          {
+            "slug": "128-fruit-or-nut",
+            "classNumber": 128,
+            "name": "Fruit or Nut",
+            "recipes": []
+          },
+          {
+            "slug": "129-chocolate",
+            "classNumber": 129,
+            "name": "Chocolate",
+            "recipes": []
+          },
+          {
+            "slug": "130-other-than-above",
+            "classNumber": 130,
+            "name": "Other than Above",
+            "recipes": []
+          }
+        ]
+      },
+      "Sourdough Bread": {
+        "slug": "sourdough-bread",
+        "classes": [
+          {
+            "slug": "089-any-sourdough-loaf",
+            "classNumber": 89,
+            "name": "Any Sourdough Loaf",
+            "recipes": []
+          }
+        ]
+      },
+      "Specialty Diet": {
+        "slug": "specialty-diet",
+        "classes": [
+          {
+            "slug": "043-cookies-gluten-free",
+            "classNumber": 43,
+            "name": "Cookies Gluten Free",
+            "recipes": []
+          },
+          {
+            "slug": "044-cakes-gluten-free",
+            "classNumber": 44,
+            "name": "Cakes Gluten Free",
+            "recipes": []
+          },
+          {
+            "slug": "045-other-than-above-or-vegan-and-low-or-no-sugar",
+            "classNumber": 45,
+            "name": "Other than Above or Vegan and Low or No Sugar",
+            "recipes": []
+          }
+        ]
+      },
+      "Ugly Cakes": {
+        "slug": "ugly-cakes",
+        "classes": [
+          {
+            "slug": "139-ugly-cake",
+            "classNumber": 139,
+            "name": "Ugly Cake",
+            "recipes": []
+          }
+        ]
+      },
+      "Yeast Bread": {
+        "slug": "yeast-bread",
+        "classes": [
+          {
+            "slug": "083-white-classic-french",
+            "classNumber": 83,
+            "name": "White Classic French",
+            "recipes": []
+          },
+          {
+            "slug": "084-whole-wheat",
+            "classNumber": 84,
+            "name": "Whole Wheat",
+            "recipes": []
+          },
+          {
+            "slug": "085-raisin-and-or-cinnamon",
+            "classNumber": 85,
+            "name": "Raisin and or Cinnamon",
+            "recipes": []
+          },
+          {
+            "slug": "086-specialty-flavored-bread",
+            "classNumber": 86,
+            "name": "Specialty Flavored Bread",
+            "recipes": []
+          },
+          {
+            "slug": "087-other-grains",
+            "classNumber": 87,
+            "name": "Other Grains",
+            "recipes": []
+          },
+          {
+            "slug": "088-bread-machine",
+            "classNumber": 88,
+            "name": "Bread Machine",
+            "recipes": []
+          }
+        ]
+      },
+      "Yeast Rolls": {
+        "slug": "yeast-rolls",
+        "classes": [
+          {
+            "slug": "090-dinner-rolls-any-shape",
+            "classNumber": 90,
+            "name": "Dinner Rolls Any Shape",
+            "recipes": []
+          },
+          {
+            "slug": "091-whole-wheat-or-whole-grain",
+            "classNumber": 91,
+            "name": "Whole Wheat or Whole Grain",
+            "recipes": []
+          },
+          {
+            "slug": "092-cinnamon-rolls",
+            "classNumber": 92,
+            "name": "Cinnamon Rolls",
+            "recipes": []
+          },
+          {
+            "slug": "093-other-than-above",
+            "classNumber": 93,
+            "name": "Other than Above",
+            "recipes": []
+          }
+        ]
+      }
+    },
+    "sponsored": {
+      "Burtons Maplewood Farm Cooking With Maple Syrup": {
+        "slug": "burtons-maplewood-farm-cooking-with-maple-syrup",
+        "classes": [
+          {
+            "slug": "003-cooking-with-maple-syrup",
+            "classNumber": 3,
+            "name": "Cooking with Maple Syrup",
+            "recipes": [
+              {
+                "personId": "kevin",
+                "personName": "Kevin Miller",
+                "recipeSlug": "maple-five-ways",
+                "recipeName": "Maple Five Ways",
+                "recipePath": "sponsored/burtons-maplewood-farm-cooking-with-maple-syrup/003-cooking-with-maple-syrup/kevin/maple-five-ways/recipe.md",
+                "classNumber": 3,
+                "className": "Cooking with Maple Syrup"
+              }
+            ]
+          }
+        ]
+      },
+      "Cupcakes": {
+        "slug": "cupcakes",
+        "classes": [
+          {
+            "slug": "004-red-velvet-cupcake-contest",
+            "classNumber": 4,
+            "name": "Red Velvet Cupcake Contest",
+            "recipes": []
+          }
+        ]
+      },
+      "King Arthur Baking Company Contest": {
+        "slug": "king-arthur-baking-company-contest",
+        "classes": [
+          {
+            "slug": "002-marble-cake-with-vanilla-buttercream-frosting",
+            "classNumber": 2,
+            "name": "Marble Cake with Vanilla Buttercream Frosting",
+            "recipes": []
+          }
+        ]
+      },
+      "Youth King Arthur Baking Company Contest": {
+        "slug": "youth-king-arthur-baking-company-contest",
+        "classes": [
+          {
+            "slug": "001-king-arthur-baking-company-recipe-contest",
+            "classNumber": 1,
+            "name": "King Arthur Baking Company Recipe Contest",
+            "recipes": []
+          }
+        ]
+      }
+    },
+    "youth": {
+      "Brownies": {
+        "slug": "brownies",
+        "classes": [
+          {
+            "slug": "002-brownies-frosted-or-unfrosted",
+            "classNumber": 2,
+            "name": "Brownies Frosted or Unfrosted",
+            "recipes": []
+          }
+        ]
+      },
+      "Cakes": {
+        "slug": "cakes",
+        "classes": [
+          {
+            "slug": "003-single-or-multiple-layer-cake",
+            "classNumber": 3,
+            "name": "Single or Multiple Layer Cake",
+            "recipes": []
+          },
+          {
+            "slug": "004-a-celebration-of-baseball",
+            "classNumber": 4,
+            "name": "A Celebration of Baseball",
+            "recipes": []
+          },
+          {
+            "slug": "005-america-250th-birthday-theme",
+            "classNumber": 5,
+            "name": "America 250th Birthday Theme",
+            "recipes": []
+          }
+        ]
+      },
+      "Cookies": {
+        "slug": "cookies",
+        "classes": [
+          {
+            "slug": "001-6-drop-molded-or-bar-cookies",
+            "classNumber": 1,
+            "name": "6 Drop Molded or Bar Cookies",
+            "recipes": []
+          },
+          {
+            "slug": "001-drop-molded-or-bar-cookies",
+            "classNumber": "",
+            "name": "Drop Molded Or Bar Cookies",
+            "recipes": []
+          }
+        ]
+      }
+    }
+  }
+}
