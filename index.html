@@ -3,147 +3,375 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recipe Markdown Builder</title>
+    <title>GitHub Recipe Editor</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="stylesheet" href="builder.css" />
   </head>
   <body>
-    <main class="app">
-      <section class="panel">
-        <div id="editingBanner" class="editing-banner" hidden>
-          <strong>Editing existing recipe</strong>
-          <span id="editingRecipeName"></span>
+    <header class="topbar">
+      <div class="topbar-copy">
+        <p class="eyebrow">GitHub Recipe Editor</p>
+        <h1>Retrieve, edit, review, and save recipe markdown.</h1>
+      </div>
+
+      <div class="connection-card">
+        <div class="connection-grid">
+          <label>
+            Owner
+            <input id="githubOwner" placeholder="kevinmmiller" autocomplete="off" />
+          </label>
+
+          <label>
+            Repository
+            <input id="githubRepo" placeholder="recipes" autocomplete="off" />
+          </label>
+
+          <label>
+            Branch
+            <input id="githubBranch" placeholder="main" autocomplete="off" />
+          </label>
+
+          <label>
+            Session Token
+            <input
+              id="githubToken"
+              type="password"
+              placeholder="Development only"
+              autocomplete="off"
+            />
+          </label>
         </div>
 
-        <h1>Recipe Builder</h1>
+        <div class="connection-actions">
+          <button type="button" id="connectGithubBtn">Connect</button>
+          <button type="button" id="reloadRecipesBtn">Reload Recipes</button>
+        </div>
 
-        <button type="button" id="toggleGithubBtn">GitHub Settings</button>
+        <p id="connectionStatus" class="status-line" aria-live="polite">
+          Not connected
+        </p>
+      </div>
+    </header>
 
-        <section id="githubSettings" class="github-settings" hidden>
-          <label>
-            GitHub Owner
-            <input id="githubOwner" placeholder="kevinmmiller" />
-          </label>
+    <main class="workspace">
+      <aside class="sidebar panel" aria-labelledby="libraryHeading">
+          <div class="sidebar-header">
+            <div>
+              <p class="eyebrow">Library</p>
+              <h2 id="libraryHeading">Recipe Files</h2>
+            </div>
 
-          <label>
-            GitHub Repo
-            <input id="githubRepo" placeholder="recipes" />
-          </label>
-
-          <label>
-            GitHub Branch
-            <input id="githubBranch" placeholder="main" />
-          </label>
-
-          <label>
-            GitHub Token
-            <input id="githubToken" type="text" placeholder="ghp_..." />
-          </label>
-
-          <button type="button" id="saveGithubSettingsBtn">
-            Save GitHub Settings
-          </button>
-        </section>
+          <button type="button" id="newRecipeBtn">New Recipe</button>
+        </div>
 
         <label>
-          Title
-          <input id="title" placeholder="Spanish BBQ Ribs" />
+          Search
+          <input
+            id="recipeSearch"
+            placeholder="Title, filename, or person"
+            autocomplete="off"
+          />
         </label>
 
-        <label>
-          Existing Recipe
-          <select id="existingRecipe">
-            <option value="">Create a new recipe</option>
-          </select>
-        </label>
+        <div class="sidebar-filters">
+          <label>
+            Person
+            <select id="filterPerson">
+              <option value="">All people</option>
+            </select>
+          </label>
 
-        <div class="grid grid-meta">
           <label>
             Category
-            <select id="category">
-              <option value="">Loading categories...</option>
+            <select id="filterCategory">
+              <option value="">All categories</option>
             </select>
           </label>
 
           <label>
             Class
-            <select id="recipeClass">
-              <option value="">Select a category first</option>
-            </select>
-          </label>
-
-          <label>
-            Person
-            <select id="person">
-              <option value="">Loading people...</option>
+            <select id="filterClass">
+              <option value="">All classes</option>
             </select>
           </label>
         </div>
 
-        <div class="grid">
-          <label>
-            Servings
-            <input id="servings" placeholder="6" />
-          </label>
-
-          <label>
-            Prep Time
-            <input id="prepTime" placeholder="25 minutes" />
-          </label>
-
-          <label>
-            Cook Time
-            <input id="cookTime" placeholder="3 hours" />
-          </label>
+        <div class="sidebar-meta">
+          <span id="recipeCount">0 recipes</span>
+          <span id="draftHint">Drafts saved in this browser session.</span>
         </div>
 
-        <label>
-          Main Ingredients
-          <textarea
-            id="mainIngredients"
-            placeholder="- 2 racks ribs&#10;- 2 tbsp smoked paprika"
-          ></textarea>
-        </label>
+        <div id="recipeList" class="recipe-list" aria-live="polite"></div>
+      </aside>
 
-        <label>
-          Main Steps
-          <textarea
-            id="mainSteps"
-            placeholder="1. Season the ribs.&#10;2. Smoke until tender."
-          ></textarea>
-        </label>
+      <section class="editor-shell">
+        <div id="editingBanner" class="editing-banner" hidden>
+          <strong id="editingModeLabel">Editing existing recipe</strong>
+          <span id="editingRecipeName"></span>
+        </div>
 
-        <section>
-          <div class="preview-header">
-            <h2>Sub Recipes</h2>
-            <button type="button" id="addSubRecipeBtn">Add Sub Recipe</button>
+        <section class="panel editor-panel">
+          <div class="editor-head">
+            <div>
+              <p class="eyebrow">Editor</p>
+              <h2 id="editorTitle">New local recipe</h2>
+            </div>
+
+            <div class="editor-status">
+              <span id="saveStateBadge" class="badge">Local draft</span>
+              <span id="selectedPath" class="path-pill">No path selected</span>
+            </div>
           </div>
 
-          <div id="subRecipes"></div>
+          <div class="tabbar" role="tablist" aria-label="Editor views">
+            <button type="button" class="tab is-active" data-tab="structured">
+              Structured
+            </button>
+            <button type="button" class="tab" data-tab="markdown">Markdown</button>
+            <button type="button" class="tab" data-tab="preview">Preview</button>
+          </div>
+
+          <section id="structuredPanel" class="editor-view">
+            <div class="section-block">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Identity</p>
+                  <h3>Recipe metadata</h3>
+                </div>
+              </div>
+
+              <div class="field-grid field-grid-wide">
+                <label class="field-span-2 field-prominent">
+                  Title
+                  <input
+                    id="title"
+                    placeholder="Example: Harvest Wind Cheese Dip"
+                  />
+                </label>
+
+                <label class="field-span-2 field-prominent">
+                  Recipe ID
+                  <input
+                    id="recipeId"
+                    placeholder="Example: harvest-wind-cheese-dip"
+                  />
+                </label>
+
+                <label>
+                  Person / Entrant
+                  <select id="person">
+                    <option value="">Select a person</option>
+                  </select>
+                </label>
+
+                <label>
+                  Entry Number
+                  <input id="entryNumber" placeholder="29" />
+                </label>
+
+                <label>
+                  Category
+                  <select id="category">
+                    <option value="">Select a category</option>
+                  </select>
+                </label>
+
+                <label>
+                  Class
+                  <select id="recipeClass">
+                    <option value="">Select a class</option>
+                  </select>
+                </label>
+
+                <label>
+                  Status
+                  <input id="status" placeholder="draft" />
+                </label>
+
+                <label>
+                  Tags
+                  <input id="tags" placeholder="dip, vegetables, ranch" />
+                </label>
+
+                <label class="field-span-2">
+                  Description
+                  <textarea
+                    id="description"
+                    placeholder="Example: A cold cheese dip inspired by the first cool breeze of late August."
+                  ></textarea>
+                </label>
+              </div>
+            </div>
+
+            <div class="section-block">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Timing</p>
+                  <h3>Yield and duration</h3>
+                </div>
+              </div>
+
+              <div class="field-grid">
+                <label>
+                  Servings / Yield
+                  <input id="servings" placeholder="6" />
+                </label>
+
+                <label>
+                  Prep Time
+                  <input id="prepTime" placeholder="20 minutes" />
+                </label>
+
+                <label>
+                  Cook Time
+                  <input id="cookTime" placeholder="10 minutes" />
+                </label>
+
+                <label>
+                  Total Time
+                  <input id="totalTime" placeholder="30 minutes" />
+                </label>
+              </div>
+            </div>
+
+            <div class="section-block">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Main recipe</p>
+                  <h3>Ingredients and steps</h3>
+                </div>
+              </div>
+
+              <label>
+                Main Ingredients
+                <textarea
+                  id="mainIngredients"
+                  placeholder="Example:&#10;- 8 oz cream cheese, softened&#10;- 1 cup sharp white cheddar, finely shredded&#10;- 1/2 cup sour cream"
+                ></textarea>
+              </label>
+
+              <label>
+                Main Steps
+                <textarea
+                  id="mainSteps"
+                  placeholder="Example:&#10;1. Roast the corn until lightly caramelized.&#10;2. Reserve part for texture.&#10;3. Fold everything together and chill."
+                ></textarea>
+              </label>
+            </div>
+
+            <div class="section-block">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Components</p>
+                  <h3>Sub recipes</h3>
+                </div>
+
+                <button type="button" id="addSubRecipeBtn">Add Sub Recipe</button>
+              </div>
+
+              <div id="subRecipes" class="stack-list"></div>
+            </div>
+
+            <div class="section-block">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Finish</p>
+                  <h3>Assembly and notes</h3>
+                </div>
+              </div>
+
+              <label>
+                Assembly
+                <textarea
+                  id="assembly"
+                  placeholder="Example:&#10;1. Spread the chilled dip into a shallow serving dish.&#10;2. Add the crumble just before serving."
+                ></textarea>
+              </label>
+
+              <label>
+                Notes
+                <textarea
+                  id="notes"
+                  placeholder="Example:&#10;- Add the crumble immediately before serving to preserve texture.&#10;- Let the maple support the flavor, not dominate it."
+                ></textarea>
+              </label>
+            </div>
+
+            <div class="section-block">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Optional</p>
+                  <h3>Additional sections</h3>
+                </div>
+
+                <button type="button" id="addOptionalSectionBtn">Add Section</button>
+              </div>
+
+              <div id="optionalSections" class="stack-list"></div>
+            </div>
+          </section>
+
+          <section id="markdownPanel" class="editor-view" hidden>
+            <label>
+              Raw Markdown
+              <textarea id="rawMarkdown" class="raw-editor"></textarea>
+            </label>
+
+            <div class="inline-actions">
+              <button type="button" id="applyMarkdownBtn">Apply Markdown</button>
+              <button type="button" id="resetMarkdownBtn">Revert to Loaded</button>
+            </div>
+          </section>
+
+          <section id="previewPanel" class="editor-view" hidden>
+            <div class="preview-card">
+              <div id="previewContent" class="preview-content"></div>
+            </div>
+          </section>
         </section>
-        <label>
-          Assembly
-          <textarea
-            id="assembly"
-            placeholder="1. Slice ribs.&#10;2. Serve with tapenade."
-          ></textarea>
-        </label>
 
-        <label>
-          Notes
-          <textarea
-            id="notes"
-            placeholder="- Better after resting 10 minutes."
-          ></textarea>
-        </label>
-      </section>
+        <section class="panel review-panel">
+          <div class="review-head">
+            <div>
+              <p class="eyebrow">Review</p>
+              <h2>Validation and save</h2>
+            </div>
 
-      <section class="panel">
-        <div class="preview-header">
-          <h2>Markdown Output</h2>
-          <button id="copyBtn">Copy Markdown</button>
-        </div>
+            <div class="inline-actions">
+              <button type="button" id="validateBtn">Validate</button>
+              <button type="button" id="saveBtn">Save to GitHub</button>
+            </div>
+          </div>
 
-        <pre id="output"></pre>
+          <div class="review-grid">
+            <div class="review-column">
+              <label>
+                Repository Path
+                <input
+                  id="recipePath"
+                  placeholder="Example: adult/dips-or-spreads/035-cheese-dip/kevin/harvest-wind/recipe.md"
+                />
+              </label>
+
+              <label>
+                Commit Message
+                <input
+                  id="commitMessage"
+                  placeholder="Example: recipe: update harvest-wind-cheese-dip"
+                />
+              </label>
+
+              <div id="validationSummary" class="validation-summary" aria-live="polite"></div>
+            </div>
+
+            <div class="review-column">
+              <div class="review-block">
+                <h3>Changes</h3>
+                <pre id="diffOutput" class="diff-output">No changes yet.</pre>
+              </div>
+            </div>
+          </div>
+        </section>
       </section>
     </main>
 
