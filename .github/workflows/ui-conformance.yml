@@ -1,0 +1,46 @@
+name: UI conformance
+
+# visual-engineering/UI-LAYOUT-INTERACTION@1.0.0 conformance for the GitHub
+# Recipe Editor. Blocking: any failing test, schema-invalid evidence or failing
+# surface/action fails the job. Evidence, results and traces are uploaded.
+# Publishing (publish.yml) is unchanged.
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ui-conformance-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ui-conformance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Install Chromium for Playwright
+        run: npx playwright install --with-deps chromium
+      - name: Run UI conformance
+        run: npm run ui:conformance
+        env:
+          UI_CONFORMANCE_REVISION: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Upload evidence, results and traces
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-conformance
+          path: test-results/ui-conformance/
+          if-no-files-found: warn
+          retention-days: 30
