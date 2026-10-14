@@ -1,0 +1,750 @@
+{
+  "standardVersion": "1.0.0",
+  "repository": "kemiller2002/recipe-formatter",
+  "revision": "38c8828",
+  "classification": "app-ui",
+  "surfaces": [
+    {
+      "id": "editor",
+      "path": "/",
+      "kind": "editor",
+      "status": "fail",
+      "viewportWidths": [
+        320,
+        390,
+        768,
+        1280
+      ],
+      "alignmentGroups": [
+        {
+          "id": "connection-row",
+          "relation": "top-edge",
+          "toleranceCssPx": 1,
+          "targets": [
+            {
+              "role": "textbox",
+              "name": "Owner"
+            },
+            {
+              "role": "textbox",
+              "name": "Repository"
+            },
+            {
+              "role": "textbox",
+              "name": "Branch"
+            }
+          ],
+          "rationale": "ULI-L01: Connection fields share one row (declared at 768, 1280px)",
+          "evidence": [
+            "status: pass",
+            "passed: chromium > editor.spec.mjs > editor: connection-row aligns at 768px (test/ui-conformance/editor.spec.mjs:120)",
+            "passed: chromium > editor.spec.mjs > editor: connection-row aligns at 1280px (test/ui-conformance/editor.spec.mjs:120)"
+          ]
+        },
+        {
+          "id": "connection-row-height",
+          "relation": "bottom-edge",
+          "toleranceCssPx": 1,
+          "targets": [
+            {
+              "role": "textbox",
+              "name": "Owner"
+            },
+            {
+              "role": "textbox",
+              "name": "Repository"
+            },
+            {
+              "role": "textbox",
+              "name": "Branch"
+            }
+          ],
+          "rationale": "ULI-L02: Connection fields have one control height (declared at 768, 1280px)",
+          "evidence": [
+            "status: pass",
+            "passed: chromium > editor.spec.mjs > editor: connection-row-height aligns at 768px (test/ui-conformance/editor.spec.mjs:120)",
+            "passed: chromium > editor.spec.mjs > editor: connection-row-height aligns at 1280px (test/ui-conformance/editor.spec.mjs:120)"
+          ]
+        },
+        {
+          "id": "connection-actions-row",
+          "relation": "centerline",
+          "toleranceCssPx": 1,
+          "targets": [
+            {
+              "role": "button",
+              "name": "Connect"
+            },
+            {
+              "role": "button",
+              "name": "Reload Recipes"
+            }
+          ],
+          "rationale": "ULI-L10: Connection actions share one row (declared at 1280px)",
+          "evidence": [
+            "status: pass",
+            "passed: chromium > editor.spec.mjs > editor: connection-actions-row aligns at 1280px (test/ui-conformance/editor.spec.mjs:120)"
+          ]
+        },
+        {
+          "id": "identity-row",
+          "relation": "top-edge",
+          "toleranceCssPx": 1,
+          "targets": [
+            {
+              "role": "textbox",
+              "name": "Title"
+            },
+            {
+              "role": "textbox",
+              "name": "Recipe ID"
+            },
+            {
+              "role": "combobox",
+              "name": "Person / Entrant"
+            }
+          ],
+          "rationale": "ULI-L01: Title, recipe ID and entrant share the first metadata row (declared at 768px)",
+          "evidence": [
+            "status: fail",
+            "failed: chromium > editor.spec.mjs > editor: identity-row aligns at 768px (test/ui-conformance/editor.spec.mjs:120)"
+          ]
+        },
+        {
+          "id": "entrant-row",
+          "relation": "top-edge",
+          "toleranceCssPx": 1,
+          "targets": [
+            {
+              "role": "textbox",
+              "name": "Recipe ID"
+            },
+            {
+              "role": "combobox",
+              "name": "Person / Entrant"
+            }
+          ],
+          "rationale": "ULI-L01: Recipe ID and entrant share a metadata row beside the wide title (declared at 1280px)",
+          "evidence": [
+            "status: fail",
+            "failed: chromium > editor.spec.mjs > editor: entrant-row aligns at 1280px (test/ui-conformance/editor.spec.mjs:120)"
+          ]
+        },
+        {
+          "id": "classification-row",
+          "relation": "top-edge",
+          "toleranceCssPx": 1,
+          "targets": [
+            {
+              "role": "textbox",
+              "name": "Entry Number"
+            },
+            {
+              "role": "combobox",
+              "name": "Category"
+            },
+            {
+              "role": "combobox",
+              "name": "Class"
+            }
+          ],
+          "rationale": "ULI-L01: Entry number, category and class share a row although inputs and selects differ (declared at 768, 1280px)",
+          "evidence": [
+            "status: fail",
+            "failed: chromium > editor.spec.mjs > editor: classification-row aligns at 768px (test/ui-conformance/editor.spec.mjs:120)",
+            "failed: chromium > editor.spec.mjs > editor: classification-row aligns at 1280px (test/ui-conformance/editor.spec.mjs:120)"
+          ]
+        },
+        {
+          "id": "classification-row-height",
+          "relation": "bottom-edge",
+          "toleranceCssPx": 1,
+          "targets": [
+            {
+              "role": "textbox",
+              "name": "Entry Number"
+            },
+            {
+              "role": "combobox",
+              "name": "Category"
+            },
+            {
+              "role": "combobox",
+              "name": "Class"
+            }
+          ],
+          "rationale": "ULI-L02: Text inputs and selects have one control height (declared at 768, 1280px)",
+          "evidence": [
+            "status: fail",
+            "failed: chromium > editor.spec.mjs > editor: classification-row-height aligns at 768px (test/ui-conformance/editor.spec.mjs:120)",
+            "failed: chromium > editor.spec.mjs > editor: classification-row-height aligns at 1280px (test/ui-conformance/editor.spec.mjs:120)"
+          ]
+        },
+        {
+          "id": "status-row",
+          "relation": "top-edge",
+          "toleranceCssPx": 1,
+          "targets": [
+            {
+              "role": "textbox",
+              "name": "Status"
+            },
+            {
+              "role": "textbox",
+              "name": "Tags"
+            },
+            {
+              "role": "textbox",
+              "name": "Description"
+            }
+          ],
+          "rationale": "ULI-L01: Status and tags align with the taller description field in their row (declared at 768px)",
+          "evidence": [
+            "status: fail",
+            "failed: chromium > editor.spec.mjs > editor: status-row aligns at 768px (test/ui-conformance/editor.spec.mjs:120)"
+          ]
+        },
+        {
+          "id": "status-row-height",
+          "relation": "bottom-edge",
+          "toleranceCssPx": 1,
+          "targets": [
+            {
+              "role": "textbox",
+              "name": "Status"
+            },
+            {
+              "role": "textbox",
+              "name": "Tags"
+            }
+          ],
+          "rationale": "ULI-L02: Status and tags keep their intrinsic height next to a taller neighbour (declared at 768, 1280px)",
+          "evidence": [
+            "status: fail",
+            "failed: chromium > editor.spec.mjs > editor: status-row-height aligns at 768px (test/ui-conformance/editor.spec.mjs:120)",
+            "failed: chromium > editor.spec.mjs > editor: status-row-height aligns at 1280px (test/ui-conformance/editor.spec.mjs:120)"
+          ]
+        },
+        {
+          "id": "timing-row",
+          "relation": "top-edge",
+          "toleranceCssPx": 1,
+          "targets": [
+            {
+              "role": "textbox",
+              "name": "Servings / Yield"
+            },
+            {
+              "role": "textbox",
+              "name": "Prep Time"
+            },
+            {
+              "role": "textbox",
+              "name": "Cook Time"
+            }
+          ],
+          "rationale": "ULI-L01: Timing fields share a row (declared at 768px)",
+          "evidence": [
+            "status: fail",
+            "failed: chromium > editor.spec.mjs > editor: timing-row aligns at 768px (test/ui-conformance/editor.spec.mjs:120)"
+          ]
+        },
+        {
+          "id": "timing-row-wide",
+          "relation": "top-edge",
+          "toleranceCssPx": 1,
+          "targets": [
+            {
+              "role": "textbox",
+              "name": "Servings / Yield"
+            },
+            {
+              "role": "textbox",
+              "name": "Prep Time"
+            },
+            {
+              "role": "textbox",
+              "name": "Cook Time"
+            },
+            {
+              "role": "textbox",
+              "name": "Total Time"
+            }
+          ],
+          "rationale": "ULI-L01: All four timing fields share a row (declared at 1280px)",
+          "evidence": [
+            "status: fail",
+            "failed: chromium > editor.spec.mjs > editor: timing-row-wide aligns at 1280px (test/ui-conformance/editor.spec.mjs:120)"
+          ]
+        },
+        {
+          "id": "review-actions",
+          "relation": "centerline",
+          "toleranceCssPx": 1,
+          "targets": [
+            {
+              "role": "button",
+              "name": "Validate"
+            },
+            {
+              "role": "button",
+              "name": "Save to GitHub"
+            }
+          ],
+          "rationale": "ULI-L10: Validate and Save share one row in source order (declared at 390, 768, 1280px)",
+          "evidence": [
+            "status: pass",
+            "passed: chromium > editor.spec.mjs > editor: review-actions aligns at 390px (test/ui-conformance/editor.spec.mjs:120)",
+            "passed: chromium > editor.spec.mjs > editor: review-actions aligns at 768px (test/ui-conformance/editor.spec.mjs:120)",
+            "passed: chromium > editor.spec.mjs > editor: review-actions aligns at 1280px (test/ui-conformance/editor.spec.mjs:120)"
+          ]
+        },
+        {
+          "id": "review-actions-height",
+          "relation": "bottom-edge",
+          "toleranceCssPx": 1,
+          "targets": [
+            {
+              "role": "button",
+              "name": "Validate"
+            },
+            {
+              "role": "button",
+              "name": "Save to GitHub"
+            }
+          ],
+          "rationale": "ULI-L02: Validate and Save have one intrinsic height (declared at 390, 768, 1280px)",
+          "evidence": [
+            "status: pass",
+            "passed: chromium > editor.spec.mjs > editor: review-actions-height aligns at 390px (test/ui-conformance/editor.spec.mjs:120)",
+            "passed: chromium > editor.spec.mjs > editor: review-actions-height aligns at 768px (test/ui-conformance/editor.spec.mjs:120)",
+            "passed: chromium > editor.spec.mjs > editor: review-actions-height aligns at 1280px (test/ui-conformance/editor.spec.mjs:120)"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "id": "connect",
+          "control": {
+            "role": "button",
+            "name": "Connect"
+          },
+          "intent": "Check the configured repository and branch on GitHub",
+          "expectedOutcome": "Status reads \"Connected to owner/repo on branch\"; a failed lookup reports the HTTP status and never claims a connection",
+          "status": "pass",
+          "evidence": [
+            "passed: chromium > editor.spec.mjs > Connect reports a verified connection (test/ui-conformance/editor.spec.mjs:132)",
+            "passed: chromium > editor.spec.mjs > Connect reports a failed repository lookup and recovers (test/ui-conformance/editor.spec.mjs:141)"
+          ],
+          "resetStrategy": "Reload the page; every GitHub request is intercepted, so nothing persists outside the browser session"
+        },
+        {
+          "id": "reload-recipes",
+          "control": {
+            "role": "button",
+            "name": "Reload Recipes"
+          },
+          "intent": "Reload the recipe taxonomy",
+          "expectedOutcome": "Status shows progress, then where the taxonomy came from; when every source fails the status reports the failure",
+          "status": "fail",
+          "evidence": [
+            "passed: chromium > editor.spec.mjs > Reload Recipes replaces fallback data with the GitHub taxonomy (test/ui-conformance/editor.spec.mjs:153)",
+            "failed: chromium > editor.spec.mjs > Reload Recipes reports progress and a total failure honestly (test/ui-conformance/editor.spec.mjs:162)"
+          ],
+          "resetStrategy": "Reload the page; every GitHub request is intercepted, so nothing persists outside the browser session"
+        },
+        {
+          "id": "new-recipe",
+          "control": {
+            "role": "button",
+            "name": "New Recipe"
+          },
+          "intent": "Start a new local recipe",
+          "expectedOutcome": "Editor heading becomes \"New local recipe\" and the loaded recipe's fields are cleared",
+          "status": "fail",
+          "evidence": [
+            "failed: chromium > editor.spec.mjs > New Recipe clears a loaded recipe (test/ui-conformance/editor.spec.mjs:252)",
+            "failed: chromium > editor.spec.mjs > New Recipe asks before discarding unsaved edits and keeps them when declined (test/ui-conformance/editor.spec.mjs:262)"
+          ],
+          "resetStrategy": "Reload the page; every GitHub request is intercepted, so nothing persists outside the browser session"
+        },
+        {
+          "id": "search",
+          "control": {
+            "role": "textbox",
+            "name": "Search"
+          },
+          "intent": "Filter the recipe list by text",
+          "expectedOutcome": "The recipe count and list show only matching recipes",
+          "status": "pass",
+          "evidence": [
+            "passed: chromium > editor.spec.mjs > Search filters the recipe list and shows the empty state (test/ui-conformance/editor.spec.mjs:178)"
+          ],
+          "resetStrategy": "Reload the page; every GitHub request is intercepted, so nothing persists outside the browser session"
+        },
+        {
+          "id": "filter-person",
+          "control": {
+            "role": "combobox",
+            "name": "Person"
+          },
+          "intent": "Filter the recipe list by person",
+          "expectedOutcome": "Only that person's recipes are listed",
+          "status": "pass",
+          "evidence": [
+            "passed: chromium > editor.spec.mjs > Person filter lists only that person's recipes (test/ui-conformance/editor.spec.mjs:196)"
+          ],
+          "resetStrategy": "Reload the page; every GitHub request is intercepted, so nothing persists outside the browser session"
+        },
+        {
+          "id": "filter-category",
+          "control": {
+            "role": "combobox",
+            "name": "Category"
+          },
+          "intent": "Filter the recipe list by category",
+          "expectedOutcome": "Only recipes in the category are listed; an empty match shows the empty state",
+          "status": "pass",
+          "evidence": [
+            "passed: chromium > editor.spec.mjs > Category filter lists only that category's recipes (test/ui-conformance/editor.spec.mjs:206)"
+          ],
+          "resetStrategy": "Reload the page; every GitHub request is intercepted, so nothing persists outside the browser session"
+        },
+        {
+          "id": "filter-class",
+          "control": {
+            "role": "combobox",
+            "name": "Class"
+          },
+          "intent": "Filter the recipe list by class",
+          "expectedOutcome": "Only recipes in the class are listed",
+          "status": "pass",
+          "evidence": [
+            "passed: chromium > editor.spec.mjs > Class filter lists only that class's recipes (test/ui-conformance/editor.spec.mjs:215)"
+          ],
+          "resetStrategy": "Reload the page; every GitHub request is intercepted, so nothing persists outside the browser session"
+        },
+        {
+          "id": "open-wing",
+          "control": {
+            "role": "button",
+            "name": "/^Buffalo Ranch Vegetable Dip Kevin Miller · Dip for Vegetables$/"
+          },
+          "intent": "Load Buffalo Ranch Vegetable Dip from GitHub",
+          "expectedOutcome": "Editor heading becomes \"Buffalo Ranch Vegetable Dip\", fields hold the file's content, the list item is current and the status reports the load",
+          "status": "fail",
+          "evidence": [
+            "failed: chromium > editor.spec.mjs > opening \"Buffalo Ranch Vegetable Dip\" loads its file into the editor (test/ui-conformance/editor.spec.mjs:224)",
+            "passed: chromium > editor.spec.mjs > a failed recipe load is reported and does not mark the item current (test/ui-conformance/editor.spec.mjs:241)"
+          ],
+          "resetStrategy": "Reload the page; every GitHub request is intercepted, so nothing persists outside the browser session"
+        },
+        {
+          "id": "open-harvest-wind",
+          "control": {
+            "role": "button",
+            "name": "/^Harvest Wind Kevin Miller · Cheese Dip$/"
+          },
+          "intent": "Load Harvest Wind from GitHub",
+          "expectedOutcome": "Editor heading becomes \"Harvest Wind\", fields hold the file's content, the list item is current and the status reports the load",
+          "status": "fail",
+          "evidence": [
+            "failed: chromium > editor.spec.mjs > opening \"Harvest Wind\" loads its file into the editor (test/ui-conformance/editor.spec.mjs:224)"
+          ],
+          "resetStrategy": "Reload the page; every GitHub request is intercepted, so nothing persists outside the browser session"
+        },
+        {
+          "id": "open-maple-five-ways",
+          "control": {
+            "role": "button",
+            "name": "/^Maple Five Ways Kevin Miller · Cooking with Maple Syrup$/"
+          },
+          "intent": "Load Maple Five Ways from GitHub",
+          "expectedOutcome": "Editor heading becomes \"Maple Five Ways\", fields hold the file's content, the list item is current and the status reports the load",
+          "status": "fail",
+          "evidence": [
+            "failed: chromium > editor.spec.mjs > opening \"Maple Five Ways\" loads its file into the editor (test/ui-conformance/editor.spec.mjs:224)"
+          ],
+          "resetStrategy": "Reload the page; every GitHub request is intercepted, so nothing persists outside the browser session"
+        },
+        {
+          "id": "open-nola-hummus",
+          "control": {
+            "role": "button",
+            "name": "/^Nola Hummus Kevin Miller · Hummus Dip$/"
+          },
+          "intent": "Load Nola Hummus from GitHub",
+          "expectedOutcome": "Editor heading becomes \"Nola Hummus\", fields hold the file's content, the list item is current and the status reports the load",
+          "status": "fail",
+          "evidence": [
+            "failed: chromium > editor.spec.mjs > opening \"Nola Hummus\" loads its file into the editor (test/ui-conformance/editor.spec.mjs:224)"
+          ],
+          "resetStrategy": "Reload the page; every GitHub request is intercepted, so nothing persists outside the browser session"
+        },
+        {
+          "id": "open-market-recipe",
+          "control": {
+            "role": "button",
+            "name": "/^Spanish Market Tomato Sauce Kevin Miller · Tomato Based Sauce$/"
+          },
+          "intent": "Load Spanish Market Tomato Sauce from GitHub",
+          "expectedOutcome": "Editor heading becomes \"Spanish Market Tomato Sauce\", fields hold the file's content, the list item is current and the status reports the load",
+          "status": "fail",
+          "evidence": [
+            "failed: chromium > editor.spec.mjs > opening \"Spanish Market Tomato Sauce\" loads its file into the editor (test/ui-conformance/editor.spec.mjs:224)"
+          ],
+          "resetStrategy": "Reload the page; every GitHub request is intercepted, so nothing persists outside the browser session"
+        },
+        {
+          "id": "open-sun-god",
+          "control": {
+            "role": "button",
+            "name": "/^Sun God BBQ Sauce Kevin Miller · Barbecue Sauce$/"
+          },
+          "intent": "Load Sun God BBQ Sauce from GitHub",
+          "expectedOutcome": "Editor heading becomes \"Sun God BBQ Sauce\", fields hold the file's content, the list item is current and the status reports the load",
+          "status": "fail",
+          "evidence": [
+            "failed: chromium > editor.spec.mjs > opening \"Sun God BBQ Sauce\" loads its file into the editor (test/ui-conformance/editor.spec.mjs:224)"
+          ],
+          "resetStrategy": "Reload the page; every GitHub request is intercepted, so nothing persists outside the browser session"
+        },
+        {
+          "id": "open-italian-beef-cold",
+          "control": {
+            "role": "button",
+            "name": "/^Sweet Home Chicago Dip Kevin Miller · Dip for Chip Excluding Salsa$/"
+          },
+          "intent": "Load Sweet Home Chicago Dip from GitHub",
+          "expectedOutcome": "Editor heading becomes \"Sweet Home Chicago Dip\", fields hold the file's content, the list item is current and the status reports the load",
+          "status": "fail",
+          "evidence": [
+            "failed: chromium > editor.spec.mjs > opening \"Sweet Home Chicago Dip\" loads its file into the editor (test/ui-conformance/editor.spec.mjs:224)"
+          ],
+          "resetStrategy": "Reload the page; every GitHub request is intercepted, so nothing persists outside the browser session"
+        },
+        {
+          "id": "tab-structured",
+          "control": {
+            "role": "tab",
+            "name": "Structured"
+          },
+          "intent": "Show the structured editor",
+          "expectedOutcome": "The Structured tab is selected and its panel is the only one shown",
+          "status": "fail",
+          "evidence": [
+            "timedOut: chromium > editor.spec.mjs > the Structured tab selects its panel (test/ui-conformance/editor.spec.mjs:282)"
+          ]
+        },
+        {
+          "id": "tab-markdown",
+          "control": {
+            "role": "tab",
+            "name": "Markdown"
+          },
+          "intent": "Show the raw Markdown editor",
+          "expectedOutcome": "The Markdown tab is selected and the raw Markdown reflects the structured fields",
+          "status": "fail",
+          "evidence": [
+            "timedOut: chromium > editor.spec.mjs > the Markdown tab selects its panel (test/ui-conformance/editor.spec.mjs:282)",
+            "timedOut: chromium > editor.spec.mjs > tabs follow the arrow-key pattern (test/ui-conformance/editor.spec.mjs:296)"
+          ]
+        },
+        {
+          "id": "tab-preview",
+          "control": {
+            "role": "tab",
+            "name": "Preview"
+          },
+          "intent": "Show the preview",
+          "expectedOutcome": "The Preview tab is selected and the preview shows the current title",
+          "status": "fail",
+          "evidence": [
+            "timedOut: chromium > editor.spec.mjs > the Preview tab selects its panel (test/ui-conformance/editor.spec.mjs:282)",
+            "timedOut: chromium > editor.spec.mjs > tabs follow the arrow-key pattern (test/ui-conformance/editor.spec.mjs:296)"
+          ]
+        },
+        {
+          "id": "edit-title",
+          "control": {
+            "role": "textbox",
+            "name": "Title"
+          },
+          "intent": "Edit the recipe title",
+          "expectedOutcome": "The raw Markdown, preview and inferred recipe ID follow the title",
+          "status": "fail",
+          "evidence": [
+            "timedOut: chromium > editor.spec.mjs > editing the title updates the Markdown, suggested ID and preview (test/ui-conformance/editor.spec.mjs:310)"
+          ]
+        },
+        {
+          "id": "add-sub-recipe",
+          "control": {
+            "role": "button",
+            "name": "Add Sub Recipe"
+          },
+          "intent": "Add a sub recipe card",
+          "expectedOutcome": "A card named \"Sub Recipe N\" appears with its fields",
+          "status": "fail",
+          "evidence": [
+            "failed: chromium > editor.spec.mjs > Add Sub Recipe adds a card and writes its section (test/ui-conformance/editor.spec.mjs:324)"
+          ],
+          "resetStrategy": "Reload the page; every GitHub request is intercepted, so nothing persists outside the browser session"
+        },
+        {
+          "id": "card-move-up",
+          "control": {
+            "role": "button",
+            "name": "/^Move .+ up$/"
+          },
+          "intent": "Move a sub recipe or optional section earlier",
+          "expectedOutcome": "The card order changes; the first card's Up is disabled",
+          "status": "fail",
+          "evidence": [
+            "timedOut: chromium > editor.spec.mjs > Sub Recipe cards reorder and remove, with edge moves disabled (test/ui-conformance/editor.spec.mjs:349)",
+            "timedOut: chromium > editor.spec.mjs > Optional Section cards reorder and remove, with edge moves disabled (test/ui-conformance/editor.spec.mjs:349)"
+          ],
+          "resetStrategy": "Reload the page; every GitHub request is intercepted, so nothing persists outside the browser session"
+        },
+        {
+          "id": "card-move-down",
+          "control": {
+            "role": "button",
+            "name": "/^Move .+ down$/"
+          },
+          "intent": "Move a sub recipe or optional section later",
+          "expectedOutcome": "The card order changes; the last card's Down is disabled",
+          "status": "fail",
+          "evidence": [
+            "timedOut: chromium > editor.spec.mjs > Sub Recipe cards reorder and remove, with edge moves disabled (test/ui-conformance/editor.spec.mjs:349)",
+            "timedOut: chromium > editor.spec.mjs > Optional Section cards reorder and remove, with edge moves disabled (test/ui-conformance/editor.spec.mjs:349)"
+          ],
+          "resetStrategy": "Reload the page; every GitHub request is intercepted, so nothing persists outside the browser session"
+        },
+        {
+          "id": "card-remove",
+          "control": {
+            "role": "button",
+            "name": "/^Remove .+$/"
+          },
+          "intent": "Remove a sub recipe or optional section",
+          "expectedOutcome": "The card is removed and the empty state returns when none are left",
+          "status": "fail",
+          "evidence": [
+            "timedOut: chromium > editor.spec.mjs > Sub Recipe cards reorder and remove, with edge moves disabled (test/ui-conformance/editor.spec.mjs:349)",
+            "timedOut: chromium > editor.spec.mjs > Optional Section cards reorder and remove, with edge moves disabled (test/ui-conformance/editor.spec.mjs:349)"
+          ],
+          "resetStrategy": "Reload the page; every GitHub request is intercepted, so nothing persists outside the browser session"
+        },
+        {
+          "id": "add-section",
+          "control": {
+            "role": "button",
+            "name": "Add Section"
+          },
+          "intent": "Add an optional section card",
+          "expectedOutcome": "A card named \"Optional Section N\" appears with its fields",
+          "status": "fail",
+          "evidence": [
+            "failed: chromium > editor.spec.mjs > Add Section adds an optional section card (test/ui-conformance/editor.spec.mjs:335)"
+          ],
+          "resetStrategy": "Reload the page; every GitHub request is intercepted, so nothing persists outside the browser session"
+        },
+        {
+          "id": "apply-markdown",
+          "control": {
+            "role": "button",
+            "name": "Apply Markdown"
+          },
+          "intent": "Parse the raw Markdown into the structured fields",
+          "expectedOutcome": "Structured fields show the Markdown's values and the unapplied-edits error clears",
+          "status": "fail",
+          "evidence": [
+            "failed: chromium > editor.spec.mjs > Apply Markdown parses the raw Markdown into the structured fields (test/ui-conformance/editor.spec.mjs:376)"
+          ],
+          "resetStrategy": "Reload the page; every GitHub request is intercepted, so nothing persists outside the browser session"
+        },
+        {
+          "id": "revert-markdown",
+          "control": {
+            "role": "button",
+            "name": "Revert to Loaded"
+          },
+          "intent": "Discard Markdown changes back to the version loaded from GitHub",
+          "expectedOutcome": "The raw Markdown equals the loaded file again and the badge reads \"Matches GitHub\"; disabled with an explanation when nothing was loaded",
+          "status": "fail",
+          "evidence": [
+            "timedOut: chromium > editor.spec.mjs > Revert to Loaded restores the file loaded from GitHub (test/ui-conformance/editor.spec.mjs:389)"
+          ],
+          "resetStrategy": "Reload the page; every GitHub request is intercepted, so nothing persists outside the browser session"
+        },
+        {
+          "id": "validate",
+          "control": {
+            "role": "button",
+            "name": "Validate"
+          },
+          "intent": "Validate the recipe",
+          "expectedOutcome": "Findings are listed in the validation region, which receives focus",
+          "status": "fail",
+          "evidence": [
+            "failed: chromium > editor.spec.mjs > Validate lists findings and moves focus to them (test/ui-conformance/editor.spec.mjs:407)"
+          ],
+          "resetStrategy": "Reload the page; every GitHub request is intercepted, so nothing persists outside the browser session"
+        },
+        {
+          "id": "save",
+          "control": {
+            "role": "button",
+            "name": "Save to GitHub"
+          },
+          "intent": "Commit the recipe Markdown to GitHub",
+          "expectedOutcome": "While pending the button is disabled and busy; on success the PUT carries exactly the shown Markdown and the status reads \"Recipe saved to GitHub.\"; on failure or conflict the error is shown, the edits are kept and Save can be retried",
+          "status": "fail",
+          "evidence": [
+            "failed: chromium > editor.spec.mjs > Save commits exactly the shown Markdown, busy while pending (test/ui-conformance/editor.spec.mjs:419)",
+            "failed: chromium > editor.spec.mjs > a failed save keeps the edits, reports the error and succeeds on retry (test/ui-conformance/editor.spec.mjs:442)",
+            "failed: chromium > editor.spec.mjs > a remote change is reported as a conflict and nothing is written (test/ui-conformance/editor.spec.mjs:457)",
+            "failed: chromium > editor.spec.mjs > Save refuses unapplied Raw Markdown instead of discarding it (test/ui-conformance/editor.spec.mjs:468)",
+            "failed: chromium > editor.spec.mjs > Save with validation errors writes nothing and shows the findings (test/ui-conformance/editor.spec.mjs:486)"
+          ],
+          "resetStrategy": "Reload the page; every GitHub request is intercepted, so nothing persists outside the browser session"
+        }
+      ],
+      "evidence": [
+        "failed: chromium > editor.spec.mjs > at 320px > renders only declared, named actions (test/ui-conformance/editor.spec.mjs:71)",
+        "failed: chromium > editor.spec.mjs > at 320px > renders without overflow, with intact action labels (test/ui-conformance/editor.spec.mjs:59)",
+        "failed: chromium > editor.spec.mjs > at 320px > shows the longest recipe path without overflow or clipping (test/ui-conformance/editor.spec.mjs:85)",
+        "failed: chromium > editor.spec.mjs > at 320px > reflows at 200% text without overflow (test/ui-conformance/editor.spec.mjs:93)",
+        "failed: chromium > editor.spec.mjs > at 390px > renders only declared, named actions (test/ui-conformance/editor.spec.mjs:71)",
+        "failed: chromium > editor.spec.mjs > at 390px > renders without overflow, with intact action labels (test/ui-conformance/editor.spec.mjs:59)",
+        "failed: chromium > editor.spec.mjs > at 390px > reflows at 200% text without overflow (test/ui-conformance/editor.spec.mjs:93)",
+        "failed: chromium > editor.spec.mjs > at 390px > shows the longest recipe path without overflow or clipping (test/ui-conformance/editor.spec.mjs:85)",
+        "failed: chromium > editor.spec.mjs > at 768px > renders only declared, named actions (test/ui-conformance/editor.spec.mjs:71)",
+        "failed: chromium > editor.spec.mjs > at 768px > renders without overflow, with intact action labels (test/ui-conformance/editor.spec.mjs:59)",
+        "failed: chromium > editor.spec.mjs > at 768px > shows the longest recipe path without overflow or clipping (test/ui-conformance/editor.spec.mjs:85)",
+        "failed: chromium > editor.spec.mjs > at 768px > reflows at 200% text without overflow (test/ui-conformance/editor.spec.mjs:93)",
+        "failed: chromium > editor.spec.mjs > at 1280px > renders only declared, named actions (test/ui-conformance/editor.spec.mjs:71)",
+        "failed: chromium > editor.spec.mjs > at 1280px > renders without overflow, with intact action labels (test/ui-conformance/editor.spec.mjs:59)",
+        "failed: chromium > editor.spec.mjs > at 1280px > shows the longest recipe path without overflow or clipping (test/ui-conformance/editor.spec.mjs:85)",
+        "failed: chromium > editor.spec.mjs > at 1280px > reflows at 200% text without overflow (test/ui-conformance/editor.spec.mjs:93)",
+        "passed: chromium > editor.spec.mjs > reduced motion removes button transitions (test/ui-conformance/editor.spec.mjs:506)",
+        "timedOut: chromium > editor.spec.mjs > primary actions are reachable by keyboard (test/ui-conformance/editor.spec.mjs:497)",
+        "alignment group connection-stack (left-edge; not expressible in the schema 1.0.0 relation enum) status pass: ULI-L09: Connection fields stack on one left edge on narrow screens (declared at 320, 390px); peers textbox \"Owner\", textbox \"Repository\", textbox \"Branch\", textbox \"Session Token\"; 2 measurement(s): passed: chromium > editor.spec.mjs > editor: connection-stack aligns at 320px (test/ui-conformance/editor.spec.mjs:120); passed: chromium > editor.spec.mjs > editor: connection-stack aligns at 390px (test/ui-conformance/editor.spec.mjs:120)",
+        "alignment group connection-actions-stack (left-edge; not expressible in the schema 1.0.0 relation enum) status pass: ULI-L10: Connection actions stack as full-width peers at and below 820px (declared at 320, 390, 768px); peers button \"Connect\", button \"Reload Recipes\"; 3 measurement(s): passed: chromium > editor.spec.mjs > editor: connection-actions-stack aligns at 320px (test/ui-conformance/editor.spec.mjs:120); passed: chromium > editor.spec.mjs > editor: connection-actions-stack aligns at 390px (test/ui-conformance/editor.spec.mjs:120); passed: chromium > editor.spec.mjs > editor: connection-actions-stack aligns at 768px (test/ui-conformance/editor.spec.mjs:120)",
+        "alignment group connection-actions-stack-width (right-edge; not expressible in the schema 1.0.0 relation enum) status pass: ULI-L02: Stacked connection actions have one width (declared at 320, 390, 768px); peers button \"Connect\", button \"Reload Recipes\"; 3 measurement(s): passed: chromium > editor.spec.mjs > editor: connection-actions-stack-width aligns at 320px (test/ui-conformance/editor.spec.mjs:120); passed: chromium > editor.spec.mjs > editor: connection-actions-stack-width aligns at 390px (test/ui-conformance/editor.spec.mjs:120); passed: chromium > editor.spec.mjs > editor: connection-actions-stack-width aligns at 768px (test/ui-conformance/editor.spec.mjs:120)",
+        "alignment group library-filters (left-edge; not expressible in the schema 1.0.0 relation enum) status pass: ULI-L01: Search and filters stack on one left edge (declared at 320, 390, 768, 1280px); peers textbox \"Search\", combobox \"Person\", combobox \"Category\", combobox \"Class\"; 4 measurement(s): passed: chromium > editor.spec.mjs > editor: library-filters aligns at 320px (test/ui-conformance/editor.spec.mjs:120); passed: chromium > editor.spec.mjs > editor: library-filters aligns at 390px (test/ui-conformance/editor.spec.mjs:120); passed: chromium > editor.spec.mjs > editor: library-filters aligns at 768px (test/ui-conformance/editor.spec.mjs:120); passed: chromium > editor.spec.mjs > editor: library-filters aligns at 1280px (test/ui-conformance/editor.spec.mjs:120)",
+        "alignment group library-filters-width (right-edge; not expressible in the schema 1.0.0 relation enum) status pass: ULI-L02: Search and filters have one width (declared at 320, 390, 768, 1280px); peers textbox \"Search\", combobox \"Person\", combobox \"Category\", combobox \"Class\"; 4 measurement(s): passed: chromium > editor.spec.mjs > editor: library-filters-width aligns at 320px (test/ui-conformance/editor.spec.mjs:120); passed: chromium > editor.spec.mjs > editor: library-filters-width aligns at 390px (test/ui-conformance/editor.spec.mjs:120); passed: chromium > editor.spec.mjs > editor: library-filters-width aligns at 768px (test/ui-conformance/editor.spec.mjs:120); passed: chromium > editor.spec.mjs > editor: library-filters-width aligns at 1280px (test/ui-conformance/editor.spec.mjs:120)",
+        "alignment group fields-stack (left-edge; not expressible in the schema 1.0.0 relation enum) status fail: ULI-L09: Metadata fields stack on one left edge on narrow screens (declared at 320, 390px); peers textbox \"Title\", textbox \"Recipe ID\", combobox \"Person / Entrant\", textbox \"Entry Number\", combobox \"Category\", combobox \"Class\"; 2 measurement(s): failed: chromium > editor.spec.mjs > editor: fields-stack aligns at 320px (test/ui-conformance/editor.spec.mjs:120); failed: chromium > editor.spec.mjs > editor: fields-stack aligns at 390px (test/ui-conformance/editor.spec.mjs:120)"
+      ],
+      "unknownScope": [
+        "GitHub is never contacted: api.github.com and raw.githubusercontent.com are intercepted with fixtures, so real authentication, rate limits, permissions and the content repository's layout are not verified.",
+        "Translated and right-to-left text are not exercised (the editor ships English only).",
+        "Browser page zoom is approximated by the contract widths plus a 200% default text size; WebKit and Firefox are not exercised.",
+        "window.confirm prompts (discard unsaved changes, restore a session draft) are accepted or dismissed by the test; their native presentation is not measured."
+      ]
+    }
+  ],
+  "exceptions": [],
+  "notes": "Contract visual-engineering/UI-LAYOUT-INTERACTION@1.0.0 (kemiller2002/visual-engineering@8da8fbc). Helpers: @echelon-foundry/forma-conformance 0.1.0 vendored from kemiller2002/forma@769fa13 (Forma PR #158). Generated by npm run ui:conformance; statuses derive only from executed Playwright tests."
+}

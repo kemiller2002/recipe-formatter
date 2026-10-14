@@ -1,0 +1,12 @@
+{
+  "name": "recipe-formatter",
+  "private": true,
+  "description": "GitHub Recipe Editor: static page published by .github/workflows/publish.yml. Dev dependencies are test-only.",
+  "scripts": {
+    "ui:conformance": "playwright test --config=playwright.ui-conformance.config.mjs && node test/ui-conformance/validate-evidence.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "ajv": "8.17.1"
+  }
+}

@@ -124,14 +124,44 @@
           </div>
 
           <div class="tabbar" role="tablist" aria-label="Editor views">
-            <button type="button" class="tab is-active" data-tab="structured">
+            <button
+              type="button"
+              class="tab"
+              role="tab"
+              id="structuredTab"
+              data-tab="structured"
+              aria-selected="true"
+              aria-controls="structuredPanel"
+            >
               Structured
             </button>
-            <button type="button" class="tab" data-tab="markdown">Markdown</button>
-            <button type="button" class="tab" data-tab="preview">Preview</button>
+            <button
+              type="button"
+              class="tab"
+              role="tab"
+              id="markdownTab"
+              data-tab="markdown"
+              aria-selected="false"
+              aria-controls="markdownPanel"
+              tabindex="-1"
+            >
+              Markdown
+            </button>
+            <button
+              type="button"
+              class="tab"
+              role="tab"
+              id="previewTab"
+              data-tab="preview"
+              aria-selected="false"
+              aria-controls="previewPanel"
+              tabindex="-1"
+            >
+              Preview
+            </button>
           </div>
 
-          <section id="structuredPanel" class="editor-view">
+          <section id="structuredPanel" class="editor-view" role="tabpanel" aria-labelledby="structuredTab">
             <div class="section-block">
               <div class="section-heading">
                 <div>
@@ -311,7 +341,7 @@
             </div>
           </section>
 
-          <section id="markdownPanel" class="editor-view" hidden>
+          <section id="markdownPanel" class="editor-view" role="tabpanel" aria-labelledby="markdownTab" hidden>
             <label>
               Raw Markdown
               <textarea id="rawMarkdown" class="raw-editor"></textarea>
@@ -319,11 +349,20 @@
 
             <div class="inline-actions">
               <button type="button" id="applyMarkdownBtn">Apply Markdown</button>
-              <button type="button" id="resetMarkdownBtn">Revert to Loaded</button>
+              <button
+                type="button"
+                id="resetMarkdownBtn"
+                aria-describedby="resetMarkdownHint"
+              >
+                Revert to Loaded
+              </button>
             </div>
+            <p id="resetMarkdownHint" class="action-hint">
+              Nothing has been loaded from GitHub yet, so there is no version to revert to.
+            </p>
           </section>
 
-          <section id="previewPanel" class="editor-view" hidden>
+          <section id="previewPanel" class="editor-view" role="tabpanel" aria-labelledby="previewTab" hidden>
             <div class="preview-card">
               <div id="previewContent" class="preview-content"></div>
             </div>
@@ -361,7 +400,14 @@
                 />
               </label>
 
-              <div id="validationSummary" class="validation-summary" aria-live="polite"></div>
+              <div
+                id="validationSummary"
+                class="validation-summary"
+                role="region"
+                aria-label="Validation findings"
+                aria-live="polite"
+                tabindex="-1"
+              ></div>
             </div>
 
             <div class="review-column">

@@ -79,6 +79,9 @@ function createEmptyEditor() {
     unknownSections: [],
     validation: [],
     dirty: false,
+    // Raw Markdown typed in the Markdown view and not yet applied. Save and
+    // Validate never overwrite it with the structured form (ULI-A07).
+    rawPending: false,
   };
 }
 
@@ -465,7 +468,7 @@ function renderRecipeList() {
     .map((recipe) => {
       const selected = recipe.path === state.ui.selectedRecipePath ? " is-selected" : "";
       return `
-        <button type="button" class="recipe-item${selected}" data-recipe-path="${escapeHtml(recipe.path)}">
+        <button type="button" class="recipe-item${selected}" data-recipe-path="${escapeHtml(recipe.path)}"${selected ? ' aria-current="true"' : ""}>
           <span class="recipe-item-title">${escapeHtml(recipe.title)}</span>
           <span class="recipe-item-meta">${escapeHtml(recipe.personName)} · ${escapeHtml(recipe.className)}</span>
         </button>
@@ -684,7 +687,11 @@ ${sections.join("\n\n---\n\n")}
 `.trimEnd();
 }
 
+// Unapplied Raw Markdown edits are the user's newest words: structured
+// changes never silently replace them. Apply Markdown or Revert to Loaded
+// resolves the difference explicitly.
 function syncEditorToMarkdown() {
+  if (state.editor.rawPending) return;
   state.editor.rawMarkdown = serializeEditorToMarkdown();
 }
 
@@ -748,6 +755,21 @@ function applyStateToStructuredForm() {
   renderOptionalSections();
 }
 
+// Reorder and remove controls for one card. Each name says which card it
+// moves (ULI-A06); a move that cannot happen at the list edge is disabled
+// rather than left enabled as a no-op (ULI-A01, ULI-A04).
+function stackActionButtons(kind, index, length, label) {
+  const name = escapeHtml(label).replace(/"/g, "&quot;");
+  const button = (action, text, ariaLabel, disabled) =>
+    `<button type="button" class="secondary" data-${kind}-action="${action}" data-${kind}-index="${index}" aria-label="${ariaLabel}"${disabled ? " disabled" : ""}>${text}</button>`;
+
+  return [
+    button("up", "Up", `Move ${name} up`, index === 0),
+    button("down", "Down", `Move ${name} down`, index === length - 1),
+    button("remove", "Remove", `Remove ${name}`, false),
+  ].join("\n              ");
+}
+
 function renderSubRecipes() {
   const container = $("subRecipes");
 
@@ -757,16 +779,16 @@ function renderSubRecipes() {
     return;
   }
 
-  container.innerHTML = state.editor.subRecipes
+  const list = state.editor.subRecipes;
+  container.innerHTML = list
+    .map((subRecipe, index) => ({ subRecipe, index, label: subRecipe.name || `Sub Recipe ${index + 1}` }))
     .map(
-      (subRecipe, index) => `
+      ({ subRecipe, index, label }) => `
         <div class="stack-card" data-sub-index="${index}">
           <div class="stack-card-head">
-            <strong>${escapeHtml(subRecipe.name || `Sub Recipe ${index + 1}`)}</strong>
+            <strong>${escapeHtml(label)}</strong>
             <div class="stack-actions">
-              <button type="button" class="secondary" data-sub-action="up" data-sub-index="${index}">Up</button>
-              <button type="button" class="secondary" data-sub-action="down" data-sub-index="${index}">Down</button>
-              <button type="button" class="secondary" data-sub-action="remove" data-sub-index="${index}">Remove</button>
+              ${stackActionButtons("sub", index, list.length, label)}
             </div>
           </div>
 
@@ -799,16 +821,16 @@ function renderOptionalSections() {
     return;
   }
 
-  container.innerHTML = state.editor.optionalSections
+  const list = state.editor.optionalSections;
+  container.innerHTML = list
+    .map((section, index) => ({ section, index, label: section.title || `Optional Section ${index + 1}` }))
     .map(
-      (section, index) => `
+      ({ section, index, label }) => `
         <div class="stack-card" data-optional-index="${index}">
           <div class="stack-card-head">
-            <strong>${escapeHtml(section.title || `Optional Section ${index + 1}`)}</strong>
+            <strong>${escapeHtml(label)}</strong>
             <div class="stack-actions">
-              <button type="button" class="secondary" data-optional-action="up" data-optional-index="${index}">Up</button>
-              <button type="button" class="secondary" data-optional-action="down" data-optional-index="${index}">Down</button>
-              <button type="button" class="secondary" data-optional-action="remove" data-optional-index="${index}">Remove</button>
+              ${stackActionButtons("optional", index, list.length, label)}
             </div>
           </div>
 
@@ -861,6 +883,13 @@ function renderHeaderState() {
           : "Local draft",
     state.ui.isSaving ? "warning" : state.editor.dirty ? "warning" : "ready",
   );
+  // One save at a time: a second activation while a save is pending would
+  // send a second, conflicting write (ULI-A07).
+  $("saveBtn").disabled = state.ui.isSaving;
+  $("saveBtn").setAttribute("aria-busy", String(state.ui.isSaving));
+  const canRevert = Boolean(state.editor.loadedMarkdown);
+  $("resetMarkdownBtn").disabled = !canRevert;
+  $("resetMarkdownHint").hidden = canRevert;
 }
 
 function inferRecipePath() {
@@ -1054,6 +1083,15 @@ function validateEditor() {
         description: "Selected class does not belong to the selected category.",
       });
     }
+  }
+
+  if (state.editor.rawPending) {
+    results.push({
+      severity: "error",
+      field: "rawMarkdown",
+      description:
+        "Raw Markdown has edits that are not applied yet. Apply Markdown before saving.",
+    });
   }
 
   if (!clean(getLogicalField("id"))) {
@@ -1336,6 +1374,17 @@ const githubService = {
   },
 };
 
+async function reloadRecipes() {
+  setConnectionStatus("Reloading recipe taxonomy...", "warning");
+
+  try {
+    await loadMetadata();
+  } catch (error) {
+    console.error("Recipe taxonomy reload failed", error);
+    setConnectionStatus(`Recipe taxonomy failed to load: ${error.message}`, "danger");
+  }
+}
+
 async function connectToGithub() {
   setConnectionStatus("Connecting to GitHub...", "warning");
 
@@ -1365,7 +1414,7 @@ async function loadExistingRecipe(path) {
   if (!recipe) return;
 
   state.ui.isLoadingRecipe = true;
-  state.ui.selectedRecipePath = path;
+  setConnectionStatus(`Loading ${recipe.title}...`, "warning");
 
   try {
     const remote = await githubService.getRecipe(path);
@@ -1399,9 +1448,11 @@ async function loadExistingRecipe(path) {
       setLogicalField("title", recipe.title);
     }
 
+    state.ui.selectedRecipePath = path;
     restoreDraftIfPresent();
     validateEditor();
     renderAll();
+    setConnectionStatus(`Loaded ${recipe.title} from GitHub.`, "ready");
   } catch (error) {
     console.error("Recipe load failed", error);
     setConnectionStatus(error.message, "danger");
@@ -1430,12 +1481,24 @@ function startNewRecipe() {
 }
 
 function applyRawMarkdown(markdown) {
-  const parsed = parseMarkdown(markdown);
+  // Only the recipe content comes from the Markdown. The file identity
+  // (path, loaded sha and text, new or existing) stays as loaded, so applying
+  // Markdown to a loaded recipe still saves as an update to that file.
+  const { frontmatter, mainIngredients, mainSteps, subRecipes, assembly, notes, optionalSections, unknownSections } =
+    parseMarkdown(markdown);
 
   state.editor = {
     ...state.editor,
-    ...parsed,
+    frontmatter,
+    mainIngredients,
+    mainSteps,
+    subRecipes,
+    assembly,
+    notes,
+    optionalSections,
+    unknownSections,
     rawMarkdown: markdown,
+    rawPending: false,
   };
 
   if (!clean(getLogicalField("title"))) {
@@ -1452,6 +1515,8 @@ function applyRawMarkdown(markdown) {
 }
 
 async function saveRecipe() {
+  if (state.ui.isSaving) return;
+
   applyStructuredFormToState();
   state.editor.recipePath = clean($("recipePath").value || inferRecipePath());
   $("recipePath").value = state.editor.recipePath;
@@ -1470,11 +1535,13 @@ async function saveRecipe() {
 
   if (results.some((item) => item.severity === "error")) {
     renderAll();
+    $("validationSummary").focus();
     return;
   }
 
   state.ui.isSaving = true;
   renderHeaderState();
+  setConnectionStatus("Saving to GitHub...", "warning");
 
   try {
     const latest = await githubService.getLatestFileState(state.editor.recipePath);
@@ -1557,7 +1624,9 @@ function handleTabChange(tab) {
   });
 
   document.querySelectorAll(".tab").forEach((button) => {
-    button.classList.toggle("is-active", button.dataset.tab === tab);
+    const selected = button.dataset.tab === tab;
+    button.setAttribute("aria-selected", String(selected));
+    button.tabIndex = selected ? 0 : -1;
   });
 
   if (tab === "preview") {
@@ -1567,7 +1636,7 @@ function handleTabChange(tab) {
 
 function attachEventHandlers() {
   $("connectGithubBtn").addEventListener("click", connectToGithub);
-  $("reloadRecipesBtn").addEventListener("click", loadMetadata);
+  $("reloadRecipesBtn").addEventListener("click", reloadRecipes);
   $("newRecipeBtn").addEventListener("click", startNewRecipe);
 
   ["githubOwner", "githubRepo", "githubBranch", "githubToken"].forEach((id) => {
@@ -1579,6 +1648,7 @@ function attachEventHandlers() {
     applyStructuredFormToState();
     validateEditor();
     renderAll();
+    $("validationSummary").focus();
   });
   $("saveBtn").addEventListener("click", saveRecipe);
   $("applyMarkdownBtn").addEventListener("click", () => {
@@ -1633,8 +1703,10 @@ function attachEventHandlers() {
   $("category").addEventListener("change", updateClassOptions);
 
   $("rawMarkdown").addEventListener("input", () => {
+    state.editor.rawPending = true;
     state.editor.rawMarkdown = $("rawMarkdown").value;
     state.editor.dirty = state.editor.rawMarkdown !== state.editor.loadedMarkdown;
+    validateEditor();
     persistDraft();
     updateDiffOutput();
     renderHeaderState();
@@ -1745,6 +1817,17 @@ function attachEventHandlers() {
 
   document.querySelectorAll(".tab").forEach((button) => {
     button.addEventListener("click", () => handleTabChange(button.dataset.tab));
+    button.addEventListener("keydown", (event) => {
+      const offset = { ArrowRight: 1, ArrowLeft: -1 }[event.key];
+      const target =
+        offset !== undefined
+          ? MODE_TABS[(MODE_TABS.indexOf(button.dataset.tab) + offset + MODE_TABS.length) % MODE_TABS.length]
+          : { Home: MODE_TABS[0], End: MODE_TABS[MODE_TABS.length - 1] }[event.key];
+      if (!target) return;
+      event.preventDefault();
+      handleTabChange(target);
+      $(`${target}Tab`).focus();
+    });
   });
 
   window.addEventListener("beforeunload", (event) => {
